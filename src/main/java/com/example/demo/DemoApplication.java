@@ -2,6 +2,7 @@ package com.example.demo;
 
 import com.example.demo.storage.StorageProperties;
 import com.example.demo.storage.StorageService;
+import org.mybatis.spring.annotation.MapperScan;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.CommandLineRunner;
@@ -14,8 +15,9 @@ import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.web.client.RestTemplate;
 
 @SpringBootApplication
-@EnableScheduling
+//@EnableScheduling
 @EnableConfigurationProperties(StorageProperties.class)
+@MapperScan("com.example.*.mapper")
 public class DemoApplication {
 
     private static final Logger log = LoggerFactory.getLogger(DemoApplication.class);
