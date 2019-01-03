@@ -1,8 +1,13 @@
-package com.example.demo;
+package com.example.demo.controller;
 
+import com.example.demo.Demo;
+import com.example.demo.service.DemoService;
+import com.github.pagehelper.PageHelper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.util.List;
 
 @RestController
 public class DemoController {
@@ -10,7 +15,9 @@ public class DemoController {
     private DemoService demoService;
 
     @RequestMapping("/xx")
-    public Demo find() {
-        return demoService.find(1);
+    public List<Demo> find() {
+        PageHelper.startPage(1, 2);
+
+        return demoService.findAll();
     }
 }

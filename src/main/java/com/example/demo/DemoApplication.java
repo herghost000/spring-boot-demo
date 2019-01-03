@@ -14,6 +14,9 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.web.client.RestTemplate;
 
+import java.util.Arrays;
+import java.util.Comparator;
+
 @SpringBootApplication
 @MapperScan("com.example.demo.mapper")
 //@EnableScheduling
@@ -30,6 +33,7 @@ public class DemoApplication {
     public RestTemplate restTemplate(RestTemplateBuilder builder) {
         return builder.build();
     }
+
 
     @Bean
     public CommandLineRunner run(RestTemplate restTemplate) throws Exception {
