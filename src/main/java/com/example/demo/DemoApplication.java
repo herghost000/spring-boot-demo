@@ -15,9 +15,9 @@ import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.web.client.RestTemplate;
 
 @SpringBootApplication
+@MapperScan("com.example.demo.mapper")
 //@EnableScheduling
 @EnableConfigurationProperties(StorageProperties.class)
-@MapperScan("com.example.*.mapper")
 public class DemoApplication {
 
     private static final Logger log = LoggerFactory.getLogger(DemoApplication.class);
