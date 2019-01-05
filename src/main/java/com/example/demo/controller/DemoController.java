@@ -1,6 +1,5 @@
 package com.example.demo.controller;
 
-import com.example.demo.Demo;
 import com.example.demo.service.DemoService;
 import com.github.pagehelper.PageHelper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,7 +16,6 @@ public class DemoController {
     @RequestMapping("/xx")
     public List<Demo> find() {
         PageHelper.startPage(1, 2);
-
         return demoService.findAll();
     }
 }

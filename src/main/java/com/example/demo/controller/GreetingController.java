@@ -1,7 +1,6 @@
 package com.example.demo.controller;
 
-import com.example.demo.Greeting;
-import com.example.demo.storage.StorageService;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -15,6 +14,8 @@ import java.util.concurrent.atomic.AtomicLong;
 public class GreetingController {
     private static final String template = "Hello, %s!";
     private final AtomicLong counter = new AtomicLong();
+    @Value("${com.example.demo.title}")
+    private String title;
 
     @RequestMapping("/greeting")
     public Greeting greeting(@RequestParam(value="name", defaultValue="World") String name) {
@@ -31,4 +32,10 @@ public class GreetingController {
     public String ip(HttpServletRequest request, HttpServletResponse response) {
         return "your ip:" + request.getRemoteAddr();
     }
+
+    @RequestMapping("/greeting/read/application.properties")
+    public String prop() {
+        return "what???" + title;
+    }
+
 }

@@ -1,4 +1,4 @@
-package com.example.demo;
+package com.example.demo.controller;
 
 import java.io.IOException;
 import java.util.stream.Collectors;
