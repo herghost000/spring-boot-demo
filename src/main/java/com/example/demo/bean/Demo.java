@@ -1,4 +1,4 @@
-package com.example.demo.controller;
+package com.example.demo.bean;
 
 import org.apache.ibatis.annotations.Mapper;
 

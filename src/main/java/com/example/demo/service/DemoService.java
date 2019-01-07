@@ -1,17 +1,17 @@
 package com.example.demo.service;
 
 
-import com.example.demo.controller.Demo;
+import com.example.demo.bean.Demo;
 import com.example.demo.mapper.DemoMapper;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.annotation.Resource;
 import java.util.List;
 
 @Service
 public class DemoService {
 
-    @Autowired
+    @Resource
     private DemoMapper demoMapper;
 
     public Demo find(long id) {

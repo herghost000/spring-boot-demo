@@ -3,8 +3,8 @@ package com.example.demo.controller;
 import java.io.IOException;
 import java.util.stream.Collectors;
 
-import com.example.demo.storage.StorageFileNotFoundException;
-import com.example.demo.storage.StorageService;
+import com.example.demo.exception.StorageFileNotFoundException;
+import com.example.demo.interfaces.StorageService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.Resource;
 import org.springframework.http.HttpHeaders;

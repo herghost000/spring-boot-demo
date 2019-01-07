@@ -1,4 +1,4 @@
-package com.example.demo.storage;
+package com.example.demo.service;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -9,6 +9,10 @@ import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
 import java.util.stream.Stream;
 
+import com.example.demo.interfaces.StorageService;
+import com.example.demo.exception.StorageException;
+import com.example.demo.exception.StorageFileNotFoundException;
+import com.example.demo.properties.StorageProperties;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.Resource;
 import org.springframework.core.io.UrlResource;

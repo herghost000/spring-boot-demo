@@ -3,6 +3,8 @@ package com.example.demo.config;
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.annotation.PropertyAccessor;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.boot.autoconfigure.AutoConfigureAfter;
 import org.springframework.boot.autoconfigure.data.redis.RedisAutoConfiguration;
 import org.springframework.cache.CacheManager;
@@ -30,9 +32,12 @@ import java.util.Set;
 @AutoConfigureAfter(RedisAutoConfiguration.class)
 public class RedisConfiguration extends CachingConfigurerSupport {
 
+    private final Logger logger = LoggerFactory.getLogger(this.getClass());
+
     @Bean
     @Override
     public KeyGenerator keyGenerator() {
+        logger.info("[RedisConfiguration] Redis keyGenerator");
         return new KeyGenerator() {
             @Override
             public Object generate(Object target, Method method, Object... params) {
@@ -52,6 +57,7 @@ public class RedisConfiguration extends CachingConfigurerSupport {
      */
     @Bean
     public CacheManager cacheManager(LettuceConnectionFactory factory) {
+        logger.info("[RedisConfiguration] Redis cacheManager");
         //以锁写入的方式创建RedisCacheWriter对象
         RedisCacheWriter writer = RedisCacheWriter.lockingRedisCacheWriter(factory);
         /*
@@ -75,7 +81,7 @@ public class RedisConfiguration extends CachingConfigurerSupport {
      */
     @Bean
     RedisTemplate<String, Object> redisTemplate(LettuceConnectionFactory lettuceConnectionFactory) {
-
+        logger.info("[RedisConfiguration] Redis redisTemplate");
         Jackson2JsonRedisSerializer<Object> jackson2JsonRedisSerializer = new Jackson2JsonRedisSerializer<Object>(
                 Object.class);
         ObjectMapper om = new ObjectMapper();

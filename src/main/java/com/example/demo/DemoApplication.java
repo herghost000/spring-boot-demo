@@ -1,7 +1,8 @@
 package com.example.demo;
 
-import com.example.demo.storage.StorageProperties;
-import com.example.demo.storage.StorageService;
+import com.example.demo.bean.Quote;
+import com.example.demo.properties.StorageProperties;
+import com.example.demo.interfaces.StorageService;
 import org.mybatis.spring.annotation.MapperScan;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -11,11 +12,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.boot.web.client.RestTemplateBuilder;
 import org.springframework.context.annotation.Bean;
-import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.web.client.RestTemplate;
-
-import java.util.Arrays;
-import java.util.Comparator;
 
 @SpringBootApplication
 @MapperScan("com.example.demo.mapper")

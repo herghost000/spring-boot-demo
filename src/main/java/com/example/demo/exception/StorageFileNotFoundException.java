@@ -1,6 +1,8 @@
-package com.example.demo.storage;
+package com.example.demo.exception;
 
-public class StorageFileNotFoundException extends StorageException  {
+import com.example.demo.exception.StorageException;
+
+public class StorageFileNotFoundException extends StorageException {
     public StorageFileNotFoundException(String message) {
         super(message);
     }
