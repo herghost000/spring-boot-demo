@@ -1,7 +1,7 @@
 package com.example.demo.service;
 
 
-import com.example.demo.bean.Demo;
+import com.example.demo.beans.Demo;
 import com.example.demo.mapper.DemoMapper;
 import org.springframework.stereotype.Service;
 

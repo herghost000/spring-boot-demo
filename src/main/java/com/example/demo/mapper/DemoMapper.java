@@ -1,6 +1,6 @@
 package com.example.demo.mapper;
 
-import com.example.demo.bean.Demo;
+import com.example.demo.beans.Demo;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Options;
 import org.apache.ibatis.annotations.Select;

@@ -1,6 +1,6 @@
 package com.example.demo.controller;
 
-import com.example.demo.bean.Demo;
+import com.example.demo.beans.Demo;
 import com.example.demo.service.DemoService;
 import com.github.pagehelper.PageHelper;
 import org.springframework.beans.factory.annotation.Autowired;

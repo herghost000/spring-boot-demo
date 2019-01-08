@@ -1,6 +1,6 @@
 package com.example.demo;
 
-import com.example.demo.bean.Quote;
+import com.example.demo.beans.Quote;
 import com.example.demo.properties.StorageProperties;
 import com.example.demo.interfaces.StorageService;
 import org.mybatis.spring.annotation.MapperScan;
