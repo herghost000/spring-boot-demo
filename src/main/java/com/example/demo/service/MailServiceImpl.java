@@ -1,6 +1,6 @@
 package com.example.demo.service;
 
-import com.example.demo.interfaces.MailService;
+import com.example.demo.impl.MailService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;

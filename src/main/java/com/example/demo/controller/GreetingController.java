@@ -1,7 +1,7 @@
 package com.example.demo.controller;
 
 import com.example.demo.beans.Greeting;
-import com.example.demo.interfaces.HerGhost;
+import com.example.demo.impl.HerGhost;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;

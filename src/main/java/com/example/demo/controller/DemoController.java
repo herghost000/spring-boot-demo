@@ -14,9 +14,14 @@ public class DemoController {
     @Autowired
     private DemoService demoService;
 
-    @RequestMapping("/xx")
+    @RequestMapping("/testfind")
     public List<Demo> find() {
         PageHelper.startPage(1, 2);
         return demoService.findAll();
+    }
+
+    @RequestMapping("/testexcept")
+    public int testexcept() {
+        return 100 / 0;
     }
 }

@@ -1,4 +1,4 @@
-package com.example.demo.interfaces;
+package com.example.demo.impl;
 
 public interface HerGhost {
     public void say();

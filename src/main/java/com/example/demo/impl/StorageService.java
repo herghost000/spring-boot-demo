@@ -1,4 +1,4 @@
-package com.example.demo.interfaces;
+package com.example.demo.impl;
 
 import org.springframework.core.io.Resource;
 import org.springframework.web.multipart.MultipartFile;
