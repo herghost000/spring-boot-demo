@@ -15,7 +15,7 @@ public class DemoService {
     private DemoMapper demoMapper;
 
     public Demo find(long id) {
-        return demoMapper.findById(id);
+        return demoMapper.getOne(id);
     }
-    public List<Demo> findAll() { return demoMapper.findAll(); }
+    public List<Demo> findAll() { return demoMapper.getAll(); }
 }

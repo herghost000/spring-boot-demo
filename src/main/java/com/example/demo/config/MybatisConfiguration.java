@@ -10,7 +10,7 @@ import org.springframework.context.annotation.Scope;
 import java.util.Properties;
 
 @Configuration
-public class MybaitsConfiguration {
+public class MybatisConfiguration {
     private final Logger logger = LoggerFactory.getLogger(this.getClass());
     @Bean
     public PageHelper pageHelper() {

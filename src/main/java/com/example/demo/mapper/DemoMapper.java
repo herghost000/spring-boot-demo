@@ -1,22 +1,19 @@
 package com.example.demo.mapper;
 
 import com.example.demo.beans.Demo;
-import org.apache.ibatis.annotations.Insert;
-import org.apache.ibatis.annotations.Options;
-import org.apache.ibatis.annotations.Select;
 
 import java.util.List;
 
 public interface DemoMapper {
 
-    @Select("select * from demo where id = #{id}")
-    public Demo findById(long id);
+    List<Demo> getAll();
 
-    @Select("select * from demo")
-    public List<Demo> findAll();
+    Demo getOne(Long id);
 
-    @Insert("insert into demo(name) values(#{name})")
-    @Options(useGeneratedKeys = true,keyProperty = "id",keyColumn = "id")
-    public void save(Demo demo);
+    void insert(Demo user);
+
+    void update(Demo user);
+
+    void delete(Long id);
 
 }
