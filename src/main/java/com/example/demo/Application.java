@@ -19,7 +19,6 @@ import org.springframework.web.client.RestTemplate;
 @SpringBootApplication
 @MapperScan("com.example.demo.mapper")
 @EnableScheduling
-@EnableConfigurationProperties({StorageProperties.class})
 @ServletComponentScan
 public class Application {
 
@@ -45,7 +44,8 @@ public class Application {
     }
 
     @Bean
-    CommandLineRunner init(StorageService storageService) {
+    public CommandLineRunner init(StorageService storageService) {
+        System.out.print("666");
         return (args) -> {
             storageService.deleteAll();
             storageService.init();

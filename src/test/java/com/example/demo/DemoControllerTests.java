@@ -31,19 +31,19 @@ public class DemoControllerTests {
     }
 
     //验证controller是否正常响应并打印返回结果
-    @Test
-    public void getHello() throws Exception {
-        mvc.perform(MockMvcRequestBuilders.get("/xx").accept(MediaType.APPLICATION_JSON))
-                .andExpect(status().isOk())
-                .andDo(MockMvcResultHandlers.print())
-                .andReturn();
-    }
-
-    //验证controller是否正常响应并判断返回结果是否正确
-    @Test
-    public void testXX() throws Exception {
-        System.out.println(mvc);
-        mvc.perform(MockMvcRequestBuilders.get("/xx").accept(MediaType.APPLICATION_JSON))
-                .andExpect(status().isOk());
-    }
+//    @Test
+//    public void getHello() throws Exception {
+//        mvc.perform(MockMvcRequestBuilders.get("/xx").accept(MediaType.APPLICATION_JSON))
+//                .andExpect(status().isOk())
+//                .andDo(MockMvcResultHandlers.print())
+//                .andReturn();
+//    }
+//
+//    //验证controller是否正常响应并判断返回结果是否正确
+//    @Test
+//    public void testXX() throws Exception {
+//        System.out.println(mvc);
+//        mvc.perform(MockMvcRequestBuilders.get("/xx").accept(MediaType.APPLICATION_JSON))
+//                .andExpect(status().isOk());
+//    }
 }
