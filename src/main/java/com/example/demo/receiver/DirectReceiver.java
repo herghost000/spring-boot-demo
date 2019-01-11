@@ -5,7 +5,7 @@ import com.example.demo.config.RabbitConfiguration;
 import org.springframework.amqp.rabbit.annotation.RabbitListener;
 import org.springframework.stereotype.Component;
 
-@Component
+//@Component
 public class DirectReceiver {
     @RabbitListener(queues = RabbitConfiguration.DIRECT_QUEUE1)
     public void receiveDirect1(User user) {
