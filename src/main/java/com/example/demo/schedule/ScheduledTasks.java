@@ -10,7 +10,7 @@ import java.util.Date;
 
 @Component
 public class ScheduledTasks {
-    private static final Logger log = LoggerFactory.getLogger(ScheduledTasks.class);
+    private final Logger logger = LoggerFactory.getLogger(this.getClass());
 
     private static final SimpleDateFormat dateFormat = new SimpleDateFormat("HH:mm:ss");
 

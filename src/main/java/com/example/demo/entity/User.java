@@ -3,61 +3,60 @@ package com.example.demo.entity;
 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.List;
 
 @Entity
-@Table(name="chouti_user")
 public class User {
 
-    //构造一个空构造函数不然启动报错
-    public User() {
-    }
-
-    /**
-     * id
-     */
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
     private Long id;
-    /**
-     * name
-     */
-    @Column(name="name")
+
+    @OneToMany(cascade = CascadeType.ALL,mappedBy = "user")
+    private List<Role> roles;
+
+    @Column(name="name", unique = true)
     private String name;
-    /**
-     * age
-     */
+
+    @Column(name="password")
+    private String password;
+
     @Column(name="age")
     private int age;
-    /**
-     * sex
-     */
+
     @Column(name="sex")
     private String sex;
-    /**
-     * birthday
-     */
+
     @Column(name="birth_day")
     private Date birthDay;
-    /**
-     * imageurl
-     */
+
     @Column(name="image_url")
     private String imageUrl;
-    /**
-     * province
-     */
+
     @Column(name="province")
     private String province;
-    /**
-     * area
-     */
+
     @Column(name="area")
     private String area;
-    /**
-     * sign
-     */
+
     @Column(name="sign")
     private String sign;
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public List<Role> getRoles() {
+        return roles;
+    }
+
+    public void setRoles(List<Role> roles) {
+        this.roles = roles;
+    }
 
     public Long getId() {
         return id;

@@ -45,7 +45,6 @@ public class Application {
 
     @Bean
     public CommandLineRunner init(StorageService storageService) {
-        System.out.print("666");
         return (args) -> {
             storageService.deleteAll();
             storageService.init();
