@@ -10,7 +10,5 @@ public interface UserRepository extends BaseRepository<User, Long> {
 
     List<User> findUserByName(String name);
 
-    List<User> findUserByAge(int age);
-
-    User findUserById(Long id);
+    User findUserByUsername(String name);
 }

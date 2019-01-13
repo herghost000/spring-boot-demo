@@ -7,56 +7,18 @@ import java.util.List;
 
 @Entity
 public class User {
-
     @Id
-    @GeneratedValue(strategy= GenerationType.IDENTITY)
+    @GeneratedValue
     private Long id;
-
-    @OneToMany(cascade = CascadeType.ALL,mappedBy = "user")
-    private List<Role> roles;
-
-    @Column(name="name", unique = true)
-    private String name;
-
-    @Column(name="password")
-    private String password;
-
-    @Column(name="age")
-    private int age;
-
-    @Column(name="sex")
-    private String sex;
-
-    @Column(name="birth_day")
-    private Date birthDay;
-
-    @Column(name="image_url")
-    private String imageUrl;
-
-    @Column(name="province")
-    private String province;
-
-    @Column(name="area")
-    private String area;
-
-    @Column(name="sign")
-    private String sign;
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-    public List<Role> getRoles() {
-        return roles;
-    }
-
-    public void setRoles(List<Role> roles) {
-        this.roles = roles;
-    }
+    @Column(unique =true)
+    private String username;//帐号
+    private String name;//名称（昵称或者真实姓名，不同系统不同定义）
+    private String password; //密码;
+    private String salt;//加密密码的盐
+    private byte state;//用户状态,0:创建未认证（比如没有激活，没有输入验证码等等）--等待验证的用户 , 1:正常状态,2：用户被锁定.
+    @ManyToMany(fetch= FetchType.EAGER)//立即从数据库中进行加载数据;
+    @JoinTable(name = "SysUserRole", joinColumns = { @JoinColumn(name = "uid") }, inverseJoinColumns ={@JoinColumn(name = "roleId") })
+    private List<SysRole> roles;// 一个用户具有多个角色
 
     public Long getId() {
         return id;
@@ -64,6 +26,14 @@ public class User {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     public String getName() {
@@ -74,107 +44,35 @@ public class User {
         this.name = name;
     }
 
-    public int getAge() {
-        return age;
+    public String getPassword() {
+        return password;
     }
 
-    public void setAge(int age) {
-        this.age = age;
+    public void setPassword(String password) {
+        this.password = password;
     }
 
-    public String getSex() {
-        return sex;
+    public String getSalt() {
+        return salt;
     }
 
-    public void setSex(String sex) {
-        this.sex = sex;
+    public void setSalt(String salt) {
+        this.salt = salt;
     }
 
-    public Date getBirthDay() {
-        return birthDay;
+    public byte getState() {
+        return state;
     }
 
-    public void setBirthDay(Date birthDay) {
-        this.birthDay = birthDay;
+    public void setState(byte state) {
+        this.state = state;
     }
 
-    public String getImageUrl() {
-        return imageUrl;
+    public List<SysRole> getRoles() {
+        return roles;
     }
 
-    public void setImageUrl(String imageUrl) {
-        this.imageUrl = imageUrl;
-    }
-
-    public String getProvince() {
-        return province;
-    }
-
-    public void setProvince(String province) {
-        this.province = province;
-    }
-
-    public String getArea() {
-        return area;
-    }
-
-    public void setArea(String area) {
-        this.area = area;
-    }
-
-    public String getSign() {
-        return sign;
-    }
-
-    public void setSign(String sign) {
-        this.sign = sign;
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-
-        User user = (User) o;
-
-        if (age != user.age) return false;
-        if (id != null ? !id.equals(user.id) : user.id != null) return false;
-        if (name != null ? !name.equals(user.name) : user.name != null) return false;
-        if (sex != null ? !sex.equals(user.sex) : user.sex != null) return false;
-        if (birthDay != null ? !birthDay.equals(user.birthDay) : user.birthDay != null) return false;
-        if (imageUrl != null ? !imageUrl.equals(user.imageUrl) : user.imageUrl != null) return false;
-        if (province != null ? !province.equals(user.province) : user.province != null) return false;
-        if (area != null ? !area.equals(user.area) : user.area != null) return false;
-        return sign != null ? sign.equals(user.sign) : user.sign == null;
-
-    }
-
-    @Override
-    public int hashCode() {
-        int result = id != null ? id.hashCode() : 0;
-        result = 31 * result + (name != null ? name.hashCode() : 0);
-        result = 31 * result + age;
-        result = 31 * result + (sex != null ? sex.hashCode() : 0);
-        result = 31 * result + (birthDay != null ? birthDay.hashCode() : 0);
-        result = 31 * result + (imageUrl != null ? imageUrl.hashCode() : 0);
-        result = 31 * result + (province != null ? province.hashCode() : 0);
-        result = 31 * result + (area != null ? area.hashCode() : 0);
-        result = 31 * result + (sign != null ? sign.hashCode() : 0);
-        return result;
-    }
-
-    @Override
-    public String toString() {
-        return "User{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", age=" + age +
-                ", sex='" + sex + '\'' +
-                ", birthDay=" + birthDay +
-                ", imageUrl='" + imageUrl + '\'' +
-                ", province='" + province + '\'' +
-                ", area='" + area + '\'' +
-                ", sign='" + sign + '\'' +
-                '}';
+    public void setRoles(List<SysRole> roles) {
+        this.roles = roles;
     }
 }

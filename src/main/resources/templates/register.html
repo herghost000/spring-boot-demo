@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>login page</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="renderer" content="webkit">
+    <meta content="telephone=no,email=no,date=no,address=no" name="format-detection">
+    <meta name="viewport" content="width=device-width,height=device-height,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no">
+    <!--[if IE]><link rel="icon" href="/favicon.ico"><![endif]-->
+</head>
+
+<body>
+<h1>register form</h1>
+<form action="/register" method="post">
+    <div>
+        <label for="name">用户名：</label>
+        <input id="name" type="text" name="username" >
+    </div>
+    <div>
+        <label for="password">密码：</label>
+        <input id="password" type="password" name="password" >
+    </div>
+    <div>
+        <button>submit</button>
+    </div>
+</form>
+</body>
+</html>

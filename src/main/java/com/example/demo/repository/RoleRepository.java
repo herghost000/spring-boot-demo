@@ -1,7 +1,7 @@
 package com.example.demo.repository;
 
-import com.example.demo.entity.Role;
+import com.example.demo.entity.SysRole;
 
-public interface RoleRepository extends BaseRepository<Role,Long> {
+public interface RoleRepository extends BaseRepository<SysRole,Long> {
 
 }
