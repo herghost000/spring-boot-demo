@@ -1,8 +1,6 @@
 package com.example.demo;
 
 import com.example.demo.beans.Quote;
-import com.example.demo.netty.listener.NettyServerListener;
-import com.example.demo.properties.StorageProperties;
 import com.example.demo.impl.StorageService;
 import org.mybatis.spring.annotation.MapperScan;
 import org.slf4j.Logger;
@@ -30,9 +28,6 @@ public class Application implements CommandLineRunner{
         SpringApplication.run(Application.class, args);
     }
 
-    @Resource
-    private NettyServerListener nettyServerListener;
-
     @Bean
     public RestTemplate restTemplate(RestTemplateBuilder builder) {
         return builder.build();
@@ -58,8 +53,6 @@ public class Application implements CommandLineRunner{
 
     @Override
     public void run(String... args) throws Exception {
-        System.out.println("7777777777777");
-//        nettyServerListener.start();
     }
 }
 
