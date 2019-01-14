@@ -3,9 +3,11 @@ package com.example.demo.listener;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import javax.servlet.annotation.WebListener;
 import javax.servlet.http.HttpSessionEvent;
 import javax.servlet.http.HttpSessionListener;
 
+@WebListener
 public class DemoHttpSessionListener implements HttpSessionListener {
     private final Logger logger = LoggerFactory.getLogger(this.getClass());
 

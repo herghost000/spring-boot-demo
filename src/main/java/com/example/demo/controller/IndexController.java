@@ -16,9 +16,9 @@ public class IndexController {
     private UserRepository userRepository;
 
     @RequestMapping("/")
-    public List<User> index() {
+    public User index() {
         Pageable p = PageRequest.of(0,2);
-        return userRepository.findUserByName("herghost");
+        return userRepository.findUserByUsername("admin");
 //        return userRepository.findAll(p);
     }
 

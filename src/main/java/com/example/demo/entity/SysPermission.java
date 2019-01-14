@@ -1,10 +1,14 @@
 package com.example.demo.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.List;
 
 @Entity
-public class SysPermission {
+public class SysPermission implements Serializable {
     @Id
     @GeneratedValue
     private Integer id;//主键.
@@ -18,6 +22,7 @@ public class SysPermission {
     private Boolean available = Boolean.FALSE;
     @ManyToMany
     @JoinTable(name="SysRolePermission",joinColumns={@JoinColumn(name="permissionId")},inverseJoinColumns={@JoinColumn(name="roleId")})
+    @JsonBackReference
     private List<SysRole> roles;
 
     public Integer getId() {

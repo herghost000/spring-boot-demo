@@ -1,10 +1,14 @@
 package com.example.demo.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.List;
 
 @Entity
-public class SysRole {
+public class SysRole implements Serializable {
     @Id
     @GeneratedValue
     private Integer id; // 编号
@@ -20,6 +24,7 @@ public class SysRole {
     // 用户 - 角色关系定义;
     @ManyToMany
     @JoinTable(name="SysUserRole",joinColumns={@JoinColumn(name="roleId")},inverseJoinColumns={@JoinColumn(name="uid")})
+    @JsonBackReference
     private List<User> users;// 一个角色对应多个用户
 
     public Integer getId() {

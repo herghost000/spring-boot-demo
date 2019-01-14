@@ -22,9 +22,9 @@ public class DemoShiroRealm extends AuthorizingRealm {
     @Override
     protected AuthorizationInfo doGetAuthorizationInfo(PrincipalCollection principalCollection) {
         //获取登录用户名
-        String name= (String) principalCollection.getPrimaryPrincipal();
+        String username = (String) principalCollection.getPrimaryPrincipal();
         //查询用户名称
-        User user = loginService.findByName(name);
+        User user = loginService.findUserByUsername(username);
         //添加角色和权限
         SimpleAuthorizationInfo simpleAuthorizationInfo = new SimpleAuthorizationInfo();
         for (SysRole sysRole :user.getRoles()) {

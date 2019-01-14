@@ -1,12 +1,15 @@
 package com.example.demo.entity;
 
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 
 @Entity
-public class User {
+public class User implements Serializable {
     @Id
     @GeneratedValue
     private Long id;
@@ -18,6 +21,7 @@ public class User {
     private byte state;//用户状态,0:创建未认证（比如没有激活，没有输入验证码等等）--等待验证的用户 , 1:正常状态,2：用户被锁定.
     @ManyToMany(fetch= FetchType.EAGER)//立即从数据库中进行加载数据;
     @JoinTable(name = "SysUserRole", joinColumns = { @JoinColumn(name = "uid") }, inverseJoinColumns ={@JoinColumn(name = "roleId") })
+    @JsonManagedReference
     private List<SysRole> roles;// 一个用户具有多个角色
 
     public Long getId() {
@@ -74,5 +78,18 @@ public class User {
 
     public void setRoles(List<SysRole> roles) {
         this.roles = roles;
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                ", username='" + username + '\'' +
+                ", name='" + name + '\'' +
+                ", password='" + password + '\'' +
+                ", salt='" + salt + '\'' +
+                ", state=" + state +
+                ", roles=" + roles +
+                '}';
     }
 }
