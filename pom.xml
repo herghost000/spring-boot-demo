@@ -118,6 +118,14 @@
             <version>5.0.0.Alpha2</version>
         </dependency>
 
+        <!-- https://mvnrepository.com/artifact/io.netty/netty-transport -->
+        <dependency>
+            <groupId>io.netty</groupId>
+            <artifactId>netty-transport</artifactId>
+            <version>5.0.0.Alpha2</version>
+        </dependency>
+
+
         <!-- https://mvnrepository.com/artifact/org.msgpack/msgpack -->
         <dependency>
             <groupId>org.msgpack</groupId>
@@ -125,6 +133,10 @@
             <version>0.6.12</version>
         </dependency>
 
+        <dependency>
+            <groupId>org.jboss.marshalling</groupId>
+            <artifactId>jboss-marshalling</artifactId>
+        </dependency>
 
     </dependencies>
 
