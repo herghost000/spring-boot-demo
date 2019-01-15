@@ -19,7 +19,7 @@ import javax.annotation.Resource;
 @MapperScan("com.example.demo.mapper")
 @EnableScheduling
 @ServletComponentScan
-public class Application implements CommandLineRunner{
+public class Application{
 
     private static final Logger log = LoggerFactory.getLogger(Application.class);
 
@@ -48,10 +48,6 @@ public class Application implements CommandLineRunner{
             storageService.deleteAll();
             storageService.init();
         };
-    }
-
-    @Override
-    public void run(String... args) throws Exception {
     }
 }
 
